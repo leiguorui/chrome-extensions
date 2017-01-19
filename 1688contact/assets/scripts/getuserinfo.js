@@ -1,12 +1,4 @@
 
-function copyToClipboard(element) {
-    var $temp = $("<input>");
-    $("body").append($temp);
-    $temp.val(element).select();
-    document.execCommand("copy");
-    $temp.remove();
-}
-
 var textCopy = "";
 var messageChrome = {};
 
@@ -24,34 +16,18 @@ function getTextByJquery(){
 
 	messageChrome = {"text" : textCopy , "time":new Date().getTime()};
 
-	console.log(textCopy);
-
 }
 
 var counter = 0;
-var urls = [];
 var interval;
 
-if(window.location.href.indexOf("1688.com/company/company_search.htm") > 0){
-
-	var aList = $("a.list-item-title-text");
-
-	aList.each(function(index, entry) {
-		urls.push($(entry).attr("href").split("?")[0]+"/page/contactinfo.htm");
+if(window.location.href.indexOf("sec.1688.com/query.htm") > 0){
+	messageChrome = {"text" : "need_validate_code" , "time":new Date().getTime()};
+	console.log(messageChrome.text);
+	chrome.runtime.sendMessage({greeting: messageChrome}, function(response) {
+		console.log(response.farewell);
 	});
-
-	console.log(urls);
-
-	interval = setInterval(function(){
-
-		window.open(urls[counter], '_blank');
-
-		console.log(urls);
-		counter++;
-		if(counter === aList.length) {
-			clearInterval(interval);
-		}
-	}, 5000);
+	alert("请输入验证码");
 }else{
 	interval = setInterval(function(){
 		getTextByJquery();

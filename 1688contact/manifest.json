@@ -14,13 +14,13 @@
     "default_popup":"popup.html"
   },
 	"permissions": [
-	  "storage"
+	  "storage","tabs", "http://*/*", "https://*/*","assets/scripts/*"
 	],
   "content_scripts": [
         {
         "matches": [
-            "http://*.1688.com/company/company_search.*",
-            "https://*.1688.com/company/company_search.*",
+            "http://*.sec.1688.com/query.*",
+            "https://*.sec.1688.com/query.*",
             "http://*.1688.com/page/contactinfo.*",
             "https://*.1688.com/page/contactinfo.*"
             ],
