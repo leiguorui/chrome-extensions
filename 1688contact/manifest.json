@@ -1,35 +1,42 @@
 {
-  "manifest_version":2,
-  "name":"Chrome Todo",
-  "version":"0.1.0",
-  
-  "description":"A demo Chrome browser action extension using a stripped-down version of BaseJS",
-
-  "browser_action":{
-    "default_icon":{
-      "19":"assets/images/icon/19.png",
-      "30":"assets/images/icon/19.png"
+  "manifest_version": 2,
+  "name": "Chrome Todo",
+  "version": "0.1.0",
+  "description": "A demo Chrome browser action extension using a stripped-down version of BaseJS",
+  "browser_action": {
+    "default_icon": {
+      "19": "assets/images/icon/19.png",
+      "30": "assets/images/icon/19.png"
     },
-    "default_title":"Chrome Todo",
-    "default_popup":"popup.html"
+    "default_title": "Chrome Todo",
+    "default_popup": "popup.html"
   },
-	"permissions": [
-	  "storage","tabs", "http://*/*", "https://*/*","assets/scripts/*"
-	],
+  "permissions": [
+    "storage",
+    "tabs",
+    "http://*/*",
+    "https://*/*",
+    "assets/scripts/*"
+  ],
   "content_scripts": [
-        {
-        "matches": [
-            "http://*.sec.1688.com/query.*",
-            "https://*.sec.1688.com/query.*",
-            "http://*.1688.com/page/contactinfo.*",
-            "https://*.1688.com/page/contactinfo.*"
-            ],
-        "js": ["assets/scripts/jquery.min.js", "assets/scripts/getuserinfo.js"],
-        "run_at": "document_idle"         // pay attention to this line
-        }
-    ],
+    {
+      "matches": [
+        "http://*.sec.1688.com/query.*",
+        "https://*.sec.1688.com/query.*",
+        "http://*.1688.com/page/contactinfo.*",
+        "https://*.1688.com/page/contactinfo.*"
+      ],
+      "js": [
+        "assets/scripts/jquery.min.js",
+        "assets/scripts/getuserinfo.js"
+      ],
+      "run_at": "document_idle"
+      // pay attention to this line
+    }
+  ],
   "background": {
-    "scripts": ["assets/scripts/background.js"]
+    "scripts": [
+      "assets/scripts/background.js"
+    ]
   }
-
 }

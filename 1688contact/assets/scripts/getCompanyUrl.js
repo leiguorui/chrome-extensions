@@ -7,40 +7,40 @@ var urls = [];
 var interval;
 var aList = $("a.list-item-title-text");
 
-aList.each(function(index, entry) {
-    urls.push($(entry).attr("href").split("?")[0]+"/page/contactinfo.htm");
+aList.each(function (index, entry) {
+    urls.push($(entry).attr("href").split("?")[0] + "/page/contactinfo.htm");
 });
 
 console.log(urls);
 
-interval = setInterval(function(){
+interval = setInterval(function () {
 
     window.open(urls[counter], '_blank');
 
     counter++;
-    if(counter === urls.length) {
+    if (counter === urls.length) {
         clearInterval(interval);
     }
 }, 5000);
 
 
 chrome.runtime.onMessage.addListener(
-    function(request, sender, sendResponse) {
+    function (request, sender, sendResponse) {
         console.log(sender.tab ?
         "from a content script:" + sender.tab.url :
             "from the extension");
 
         console.log(request.greeting);
 
-        if("need_validate_code" == request.greeting){
+        if ("need_validate_code" == request.greeting) {
             clearInterval(interval);
-        }else if("continue_scan" == request.greeting){
-            interval = setInterval(function(){
+        } else if ("continue_scan" == request.greeting) {
+            interval = setInterval(function () {
 
                 window.open(urls[counter], '_blank');
 
                 counter++;
-                if(counter === urls.length) {
+                if (counter === urls.length) {
                     clearInterval(interval);
                 }
             }, 5000);
