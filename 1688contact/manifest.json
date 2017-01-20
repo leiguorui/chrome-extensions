@@ -23,6 +23,8 @@
       "matches": [
         "http://*.sec.1688.com/query.*",
         "https://*.sec.1688.com/query.*",
+        "http://*.login.1688.com/*",
+        "https://*.login.1688.com/*",
         "http://*.1688.com/page/contactinfo.*",
         "https://*.1688.com/page/contactinfo.*"
       ],

@@ -20,6 +20,7 @@ interval = setInterval(function () {
     counter++;
     if (counter === urls.length) {
         clearInterval(interval);
+        alert("这个页面的联系人已经抓取完成");
     }
 }, 5000);
 
@@ -42,6 +43,7 @@ chrome.runtime.onMessage.addListener(
                 counter++;
                 if (counter === urls.length) {
                     clearInterval(interval);
+                    alert("这个页面的联系人已经抓取完成");
                 }
             }, 5000);
         }
