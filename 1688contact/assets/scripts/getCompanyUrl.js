@@ -43,7 +43,7 @@ chrome.runtime.onMessage.addListener(
                 counter++;
                 if (counter === urls.length) {
                     clearInterval(interval);
-                    alert("这个页面的联系人已经抓取完成");
+                    alert("这个页面的公司联系人已经抓取完成");
                 }
             }, 5000);
         }
